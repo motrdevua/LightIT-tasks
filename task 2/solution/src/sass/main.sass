@@ -1,0 +1,222 @@
+// ======================= Reset =====================
+
+@import reset
+
+// ==============  Responsive Font Size  =============
+
+@import ../../node_modules/rfs/sass
+
+// ===================================================
+
+$main-font: 'Roboto', sans-serif
+$text-color: #444444
+$blue: #7db6ed
+
+p
+  hyphens: auto
+
+button,
+a,
+input
+  outline: 0
+
+button,
+a
+  cursor: pointer
+
+a
+  text-decoration: none
+  color: $text-color
+
+*, *:before, *:after
+  box-sizing: inherit
+
+html
+  box-sizing: border-box
+
+body
+  +rfs(16)
+  background-color: #efefef
+  color: $text-color
+  font-family: $main-font
+
+// ===================  Main  ===================
+.wrapper
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  z-index: 99
+
+.search
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 42px 10px 10px 10px
+  max-width: 400px
+  &__field
+    padding: 5px
+    width: 250px
+    text-align: center
+    +rfs(24)
+    font-family: $main-font
+  &__field::-webkit-input-placeholder
+    color: #ccc
+    opacity: 1
+    transition: opacity 0.3s ease
+  &__field:focus::-webkit-input-placeholder
+    opacity: 0
+    transition: opacity 0.3s ease
+
+.user-list
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: 90%
+  & li:nth-child(odd)
+    background-color: #cdcdcd
+  & li:nth-child(odd) .user__details
+    background-color: #efefef
+  & li:nth-child(even) .user__details
+    background-color: #cdcdcd
+
+.head
+  display: flex
+  justify-content: space-around
+  align-items: center
+  width: 90%
+  margin: 20px 0
+  &__item
+    width: calc(100%/7)
+    text-align: left
+    +rfs(18)
+    font-weight: 800
+    letter-spacing: 1px
+    color: #444444
+
+.user
+  border-radius: 5px
+  cursor: pointer
+  &__short
+    display: flex
+    justify-content: space-around
+    align-items: center
+    padding: 10px 0
+
+.short
+  &__item
+    display: flex
+    justify-content: flex-start
+    align-self: center
+    width: calc(100%/7)
+    text-transform: capitalize
+    &:nth-child(4)
+      text-transform: none
+    &:last-child
+      display: flex
+      justify-content: center
+
+.details
+  display: none
+  & a
+    display: block
+
+.active
+  display: flex
+  justify-content: space-around
+  align-items: flex-end
+  margin: 0 20px 20px 20px
+  padding: 20px
+  border-radius: 5px
+
+.ins
+  &__item
+    padding: 5px 0
+  & span
+    +rfs(17)
+    font-weight: 900
+
+.person
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  &__first-name
+    +rfs(32)
+    text-transform: capitalize
+  &__gender
+    margin-left: 15px
+
+.email,
+.phone,
+.cell
+  display: flex
+  justify-content: flex-start
+  align-items: center
+  &__title
+    font-weight: 900
+    +rfs(17)
+  & a
+    transition: color .3s ease
+    &:hover
+      color: $blue
+      transition: color .3s ease
+
+.location
+  text-transform: capitalize
+
+.avatar
+  display: flex
+  justify-content: center
+  align-items: center
+  &-small,
+  &-big
+    border: 5px solid #fff
+    border-radius: 50%
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75)
+
+.fa-plus,
+.fa-minus
+  color: #666666
+  transition: transform 0.3s ease
+  cursor: pointer
+  &:hover
+    transform: scale(1.1)
+    transition: transform 0.3s ease
+
+.modal
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-400px, -400px) scale(1);
+  background-color: #fff;
+  border-radius: 10px;
+  opacity: 1
+  z-index: 999
+  transition: all .5s ease-in-out
+  &__title
+    margin-top: 40px
+    +rfs(32)
+    text-align: center
+
+.hidden
+  top: -100%
+  transform: translate(-400px, -400px) scale(0);
+  opacity: 0
+  z-index: 1
+  transition: all .5s ease-in-out
+
+.show-chart
+  display: flex
+  justify-content: center
+  align-items: center
+  position: absolute
+  top: 42px
+  left: 86%
+  width: 100px
+  height: 44px
+  border: 1px solid $text-color
+  border-radius: 3px
+  background-color: $blue
+  
+.hilight
+  background-color: $blue
